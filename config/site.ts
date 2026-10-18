@@ -22,6 +22,6 @@ export const siteConfig: SiteConfig = {
   authorRole: "Editorial Staff",
   publishDate: "October 19, 2026",
   replyEmail: "editorial@groundtruth.pub",
-  siteUrl: "https://ground-truth-issue-01.vercel.app",
+  siteUrl: "https://ground-truth-weld.vercel.app",
   readingTime: "3 min read",
 };
