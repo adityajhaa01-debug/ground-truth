@@ -99,8 +99,14 @@ export default function NewsletterPage() {
         {/* 2. Hero Section */}
         <section id="hero" className="mb-14 scroll-mt-20">
           {/* Publication and Issue Tagline */}
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-hairline pb-3 mb-8 font-mono text-xs text-muted uppercase tracking-wider">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-hairline pb-3 mb-8 font-mono text-xs text-muted uppercase tracking-wider">
             <div className="flex items-center gap-3">
+              <img
+                src="/story99-logo.png"
+                alt="Story 99 Logo"
+                className="h-6 w-auto object-contain rounded-[1px]"
+              />
+              <span className="text-hairline">|</span>
               <span className="font-bold text-deepPurple">{siteConfig.publicationName}</span>
               <span className="text-hairline">|</span>
               <span>{siteConfig.issueNumber}</span>
@@ -163,6 +169,21 @@ export default function NewsletterPage() {
 
             <p>{introParagraphs[2]}</p>
           </div>
+
+          {/* Editorial Figure */}
+          <figure className="my-10 border border-hairline bg-paper p-3 sm:p-4 rounded-[2px]">
+            <div className="overflow-hidden border border-hairline rounded-[1px] bg-white">
+              <img
+                src="/editorial-illustration.jpg"
+                alt="Forecasting engineer drafting directed acyclic graph models and scenario metrics"
+                className="w-full h-auto object-cover max-h-[500px]"
+              />
+            </div>
+            <figcaption className="mt-3 flex flex-col sm:flex-row sm:items-center justify-between gap-2 font-mono text-[11px] text-muted">
+              <span>FIGURE 01 // THE FORECASTING LAB</span>
+              <span>Rebuilding 50 to 60 historical models as deterministic graphs.</span>
+            </figcaption>
+          </figure>
 
           {/* Section 1: The funnel nobody wants to hand-build (B2) */}
           <section id={funnelSection.id} className="mt-14 scroll-mt-20">
@@ -342,7 +363,13 @@ export default function NewsletterPage() {
 
         {/* 5. Slim Footer */}
         <footer className="mt-16 pt-8 border-t border-hairline max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-muted">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
+            <img
+              src="/story99-logo.png"
+              alt="Story 99 Logo"
+              className="h-5 w-auto object-contain rounded-[1px]"
+            />
+            <span className="text-hairline">|</span>
             <span className="font-bold text-deepPurple">{siteConfig.publicationName}</span>
             <span>&bull;</span>
             <span>{siteConfig.issueNumber}</span>

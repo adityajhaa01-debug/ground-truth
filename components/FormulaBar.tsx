@@ -26,10 +26,17 @@ export function FormulaBar({ currentCell, currentFormula }: FormulaBarProps) {
           {currentFormula}
         </div>
 
-        {/* Publication Tag (Desktop) */}
-        <div className="hidden md:flex items-center gap-2 pl-4 border-l border-hairline text-[11px] text-muted">
-          <span className="w-2 h-2 rounded-full bg-primaryPurple inline-block" />
-          <span className="tracking-widest uppercase">Ground Truth // 01</span>
+        {/* Publication & Brand Tag */}
+        <div className="flex items-center gap-3 pl-4 border-l border-hairline">
+          <img
+            src="/story99-logo.png"
+            alt="Story 99 Logo"
+            className="h-5 w-auto object-contain rounded-[1px]"
+          />
+          <div className="hidden md:flex items-center gap-2 text-[11px] text-muted">
+            <span className="w-1.5 h-1.5 rounded-full bg-primaryPurple inline-block" />
+            <span className="tracking-widest uppercase">Ground Truth // 01</span>
+          </div>
         </div>
       </div>
     </header>
