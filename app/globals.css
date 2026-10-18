@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-page: #ffffff;
+  --color-paper: #f7f4fd;
+  --color-hairline: #e3dcf5;
+  --color-ink: #17112b;
+  --color-muted: #5e5675;
+  --color-primary-purple: #5a2fc2;
+  --color-deep-purple: #36178a;
+  --color-lilac-tint: #e9e2fa;
+}
+
+body {
+  background-color: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-newsreader), Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Faint lilac spreadsheet grid background (36px module) */
+.spreadsheet-grid {
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(to right, #e3dcf5 1px, transparent 1px),
+    linear-gradient(to bottom, #e3dcf5 1px, transparent 1px);
+  background-size: 36px 36px;
+  background-position: -1px -1px;
+}
+
+/* Soft mask over reading column to keep text 100% crisp without noisy grid lines */
+.reading-column-wash {
+  background-color: #ffffff;
+  box-shadow: 0 0 40px 30px #ffffff;
+}
+
+/* Hide scrollbars for clean tab strips */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Tabular numerals for all mono figures */
+.font-mono {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Print Stylesheet */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .no-print,
+  header,
+  nav,
+  button,
+  input[type="range"] {
+    display: none !important;
+  }
+
+  .spreadsheet-grid {
+    background-image: none !important;
+  }
+
+  figure,
+  aside,
+  blockquote {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000000 !important;
+  }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ground-truth-issue-01.vercel.app/sitemap.xml

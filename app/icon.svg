@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Cell Outline -->
+  <rect x="4" y="4" width="22" height="22" rx="2" fill="#F7F4FD" stroke="#5A2FC2" stroke-width="2.5" />
+  <!-- Excel Fill Handle Accent -->
+  <rect x="23" y="23" width="5.5" height="5.5" fill="#36178A" />
+</svg>
