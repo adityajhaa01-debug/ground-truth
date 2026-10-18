@@ -10,6 +10,7 @@ import { ScenarioDesk } from "../components/ScenarioDesk";
 import { WhereAiSits } from "../components/WhereAiSits";
 import { PullQuote } from "../components/PullQuote";
 import { ArticleActions } from "../components/ArticleActions";
+import { MarqueeBanner } from "../components/MarqueeBanner";
 
 export default function NewsletterPage() {
   const [currentCell, setCurrentCell] = useState("A1");
@@ -360,6 +361,9 @@ export default function NewsletterPage() {
           {/* Actions: Copy link, Print or save as PDF, Reply to this issue */}
           <ArticleActions />
         </article>
+
+        {/* Marquee Ticker Ribbon */}
+        <MarqueeBanner />
 
         {/* 5. Slim Footer */}
         <footer className="mt-16 pt-8 border-t border-hairline max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-muted">
