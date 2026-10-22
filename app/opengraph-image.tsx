@@ -1,8 +1,11 @@
 import { ImageResponse } from "next/og";
-import { siteConfig } from "../config/site";
+import { getLatestIssue } from "../content/issues";
 
 export const runtime = "edge";
-export const alt = `${siteConfig.publicationName} // ${siteConfig.issueNumber}: ${siteConfig.title}`;
+
+const latestIssue = getLatestIssue();
+
+export const alt = `${latestIssue.metadata.publication} // ${latestIssue.metadata.issueNumber}: ${latestIssue.metadata.title}`;
 export const size = {
   width: 1200,
   height: 630,
@@ -10,6 +13,8 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  const { metadata } = latestIssue;
+
   return new ImageResponse(
     (
       <div
@@ -54,7 +59,7 @@ export default async function Image() {
                 color: "#36178A",
               }}
             >
-              {siteConfig.publicationName.toUpperCase()} // {siteConfig.issueNumber.toUpperCase()}
+              {metadata.publication.toUpperCase()} // {metadata.issueNumber.toUpperCase()}
             </span>
           </div>
 
@@ -70,35 +75,35 @@ export default async function Image() {
               color: "#36178A",
             }}
           >
-            =GROUND_TRUTH(issue_01)
+            {metadata.formulaDefault}
           </div>
         </div>
 
         {/* Center Title in Serif */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px", margin: "30px 0" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px", margin: "24px 0" }}>
           <div
             style={{
               fontFamily: "serif",
-              fontSize: "64px",
+              fontSize: metadata.title.length > 50 ? "56px" : "64px",
               lineHeight: 1.12,
               color: "#17112B",
               fontWeight: 400,
             }}
           >
-            {siteConfig.title}
+            {metadata.title}
           </div>
 
           <div
             style={{
               fontFamily: "serif",
               fontStyle: "italic",
-              fontSize: "26px",
+              fontSize: "24px",
               color: "#5E5675",
               lineHeight: 1.4,
-              maxWidth: "960px",
+              maxWidth: "980px",
             }}
           >
-            {siteConfig.dek}
+            {metadata.dek}
           </div>
         </div>
 
@@ -116,11 +121,11 @@ export default async function Image() {
           }}
         >
           <div style={{ display: "flex", gap: "32px" }}>
-            <span>DATE: {siteConfig.publishDate}</span>
-            <span>FORMAT: BROADSHEET FUNNEL</span>
+            <span>DATE: {metadata.date.toUpperCase()}</span>
+            <span>FORMAT: {metadata.formatLabel.toUpperCase()}</span>
           </div>
           <span style={{ color: "#36178A", fontWeight: 600 }}>
-            BY {siteConfig.author.toUpperCase()}
+            BY {metadata.author.toUpperCase()}
           </span>
         </div>
       </div>
