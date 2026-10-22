@@ -3,18 +3,28 @@
 import React, { useState } from "react";
 import { siteConfig } from "../config/site";
 
-export function ArticleActions() {
+interface ArticleActionsProps {
+  issueNumber?: string;
+  replySubject?: string;
+  canonicalPath?: string;
+}
+
+export function ArticleActions({
+  issueNumber = "Issue 01",
+  replySubject = "Re: Ground Truth Issue 01",
+  canonicalPath = "/issues/01",
+}: ArticleActionsProps) {
   const [copied, setCopied] = useState(false);
 
   const handleCopyLink = async () => {
     try {
       if (typeof window !== "undefined") {
-        await navigator.clipboard.writeText(window.location.href);
+        const fullUrl = `${window.location.origin}${canonicalPath}`;
+        await navigator.clipboard.writeText(fullUrl);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       }
     } catch {
-      // Fallback
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     }
@@ -31,7 +41,7 @@ export function ArticleActions() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
         <div>
           <span className="font-mono text-[11px] uppercase tracking-wider text-muted block mb-1">
-            Dispatch Actions // Issue 01
+            Dispatch Actions // {issueNumber}
           </span>
           <p className="font-serif text-xl text-ink">
             Share with colleagues or retain for archival records.
@@ -59,7 +69,7 @@ export function ArticleActions() {
 
           {/* Reply mailto */}
           <a
-            href={`mailto:${siteConfig.replyEmail}?subject=Re:%20Ground%20Truth%20Issue%2001`}
+            href={`mailto:${siteConfig.replyEmail}?subject=${encodeURIComponent(replySubject)}`}
             className="px-4 py-2 border border-hairline bg-white hover:bg-lilacTint text-ink rounded-[2px] transition-colors duration-150 focus:outline-none focus:ring-1 focus:ring-deepPurple inline-block text-center"
           >
             Reply to this issue

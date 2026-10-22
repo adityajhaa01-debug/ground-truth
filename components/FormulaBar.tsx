@@ -5,9 +5,14 @@ import React from "react";
 interface FormulaBarProps {
   currentCell: string;
   currentFormula: string;
+  issueTag?: string;
 }
 
-export function FormulaBar({ currentCell, currentFormula }: FormulaBarProps) {
+export function FormulaBar({
+  currentCell,
+  currentFormula,
+  issueTag = "Ground Truth // 01",
+}: FormulaBarProps) {
   return (
     <header className="sticky top-0 z-40 w-full bg-white border-b border-hairline font-mono select-none">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 h-10 flex items-center text-xs">
@@ -35,7 +40,7 @@ export function FormulaBar({ currentCell, currentFormula }: FormulaBarProps) {
           />
           <div className="hidden md:flex items-center gap-2 text-[11px] text-muted">
             <span className="w-1.5 h-1.5 rounded-full bg-primaryPurple inline-block" />
-            <span className="tracking-widest uppercase">Ground Truth // 01</span>
+            <span className="tracking-widest uppercase">{issueTag}</span>
           </div>
         </div>
       </div>
