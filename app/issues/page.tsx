@@ -6,18 +6,42 @@ import { FormulaBar } from "../../components/FormulaBar";
 import { MarqueeBanner } from "../../components/MarqueeBanner";
 import { siteConfig } from "../../config/site";
 
+const ARCHIVE_DESCRIPTION =
+  "Editorial dispatches on AI, data and storytelling for business leaders.";
+
 export const metadata: Metadata = {
   title: "Ground Truth // Issue Archive",
-  description: "Complete archive of Ground Truth editorial dispatches for analytics leaders.",
+  description: ARCHIVE_DESCRIPTION,
   alternates: {
     canonical: `${siteConfig.siteUrl}/issues`,
   },
   openGraph: {
     title: "Ground Truth // Issue Archive",
-    description: "Complete archive of Ground Truth editorial dispatches for analytics leaders.",
+    description: ARCHIVE_DESCRIPTION,
     url: `${siteConfig.siteUrl}/issues`,
     siteName: "Ground Truth",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.siteUrl}/issues/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Ground Truth // Archive",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ground Truth // Issue Archive",
+    description: ARCHIVE_DESCRIPTION,
+    images: [
+      {
+        url: `${siteConfig.siteUrl}/issues/opengraph-image`,
+        width: 1200,
+        height: 630,
+        alt: "Ground Truth // Archive",
+      },
+    ],
   },
 };
 
@@ -58,7 +82,7 @@ export default function ArchivePage() {
           </h1>
 
           <p className="font-serif italic text-xl sm:text-2xl text-muted mt-4 max-w-2xl leading-relaxed">
-            All published dispatches on models, compilers, and the economics of AI writing.
+            Every Ground Truth dispatch, one sheet per issue.
           </p>
 
           <div className="mt-8 pt-4 border-t border-hairline flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-muted">
@@ -69,10 +93,6 @@ export default function ArchivePage() {
             <div className="flex items-center gap-2">
               <span className="text-deepPurple font-semibold">TOTAL ISSUES:</span>
               <span>{issues.length} Dispatches</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-deepPurple font-semibold">CADENCE:</span>
-              <span>Bi-weekly</span>
             </div>
           </div>
         </section>
@@ -158,13 +178,8 @@ export default function ArchivePage() {
             <span>&bull;</span>
             <span>2026</span>
           </div>
-          <div className="flex items-center gap-4">
-            <Link
-              href="/issues/02"
-              className="text-deepPurple font-semibold hover:underline"
-            >
-              Latest Dispatch (Issue 02) &rarr;
-            </Link>
+          <div className="text-center sm:text-right">
+            <span>Editorial dispatches on AI, data and storytelling for business leaders.</span>
           </div>
         </footer>
       </main>

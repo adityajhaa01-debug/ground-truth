@@ -23,15 +23,15 @@ export function CompressionCurve() {
 
   // Apply deterministic model transformation:
   // - score < 5 moves toward 5: score + (5 - score) * adoption
-  // - score >= 8 stays unchanged: score
-  // - score between 5 and 8 moves slightly toward 5: score - (score - 5) * 0.15 * adoption
+  // - score >= 7 stays unchanged: score (distinctive writers opt out)
+  // - score between 5 and 7 moves slightly toward 5: score - (score - 5) * 0.15 * adoption
   const simulatedScores = useMemo(() => {
     return BASELINE_SCORES.map((score) => {
       if (score < 5) {
         return score + (5 - score) * adoptionFactor;
       }
-      if (score >= 8) {
-        return score; // High writers opt out
+      if (score >= 7) {
+        return score; // Distinctive storytellers opt out
       }
       return score - (score - 5) * 0.15 * adoptionFactor;
     });

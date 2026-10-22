@@ -78,9 +78,10 @@ export const issue02: IssueData = {
       "A question to take back to your team: pull your last five testimonials. Could you swap the names without anyone noticing? If you could, you have average stories. Start there.",
     replySubject: "Re: Ground Truth Issue 02",
     canonicalPath: "/issues/02",
+    footerTagline: "An editorial dispatch on customer stories and brand trust.",
     previousIssue: {
       id: "01",
-      label: "Previous issue: 01 →",
+      label: "← Previous issue: 01",
       href: "/issues/01",
     },
   },

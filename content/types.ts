@@ -29,6 +29,7 @@ export interface IssueMetadata {
   closingQuestion: string;
   replySubject: string;
   canonicalPath: string;
+  footerTagline: string;
   previousIssue?: { id: string; label: string; href: string };
   nextIssue?: { id: string; label: string; href: string };
 }

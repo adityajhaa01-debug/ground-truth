@@ -68,6 +68,7 @@ export const issue01: IssueData = {
       "A question to take back to your team: which numbers in your stack could you not reproduce tomorrow? If the list is not empty, start there.",
     replySubject: "Re: Ground Truth Issue 01",
     canonicalPath: "/issues/01",
+    footerTagline: "An editorial dispatch for enterprise analytics leaders.",
     nextIssue: {
       id: "02",
       label: "Next issue: 02 →",

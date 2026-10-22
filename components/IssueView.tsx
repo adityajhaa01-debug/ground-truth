@@ -579,7 +579,6 @@ export function IssueView({ issue }: IssueViewProps) {
                 href={metadata.previousIssue.href}
                 className="text-deepPurple hover:text-primaryPurple font-semibold flex items-center gap-1.5"
               >
-                <span>&larr;</span>
                 <span>{metadata.previousIssue.label}</span>
               </Link>
             ) : (
@@ -632,7 +631,10 @@ export function IssueView({ issue }: IssueViewProps) {
             <span>2026</span>
           </div>
           <div className="text-center sm:text-right">
-            <span>An editorial dispatch for enterprise analytics leaders.</span>
+            <span>
+              {metadata.footerTagline ||
+                "Editorial dispatches on AI, data and storytelling for business leaders."}
+            </span>
           </div>
         </footer>
       </main>

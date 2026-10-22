@@ -26,6 +26,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const { metadata } = issue;
   const canonicalUrl = `${siteConfig.siteUrl}/issues/${metadata.slug}`;
+  const imageAlt = `${metadata.publication} // ${metadata.issueNumber}: ${metadata.title}`;
+  const imageUrl = `${siteConfig.siteUrl}/issues/${metadata.slug}/opengraph-image`;
 
   return {
     title: `${metadata.publication} // ${metadata.issueNumber}: ${metadata.title}`,
@@ -42,11 +44,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       type: "article",
       publishedTime: metadata.publishDateIso,
       authors: [metadata.author],
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: imageAlt,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: `${metadata.publication} // ${metadata.issueNumber}: ${metadata.title}`,
       description: metadata.dek,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 630,
+          alt: imageAlt,
+        },
+      ],
     },
   };
 }
